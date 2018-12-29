@@ -1,0 +1,23 @@
+rm CHESTO2_2.csv > /dev/null
+rm CHESTO3_1.csv > /dev/null
+rm CHESTO3_2.csv > /dev/null
+rm CHESTO3_3.csv > /dev/null
+rm CHESTO4_1.csv > /dev/null
+rm CHESTO4_2.csv > /dev/null
+rm CHEIMO1_1.csv > /dev/null
+rm CHEIMO1_2.csv > /dev/null
+rm CHEIMO1_3.csv > /dev/null
+
+cp Profiles_2018_orig.csv Profiles_2018.csv
+
+python3 CHESTO2_2.py
+python3 CHESTO3_1.py
+python3 CHESTO3_2.py
+python3 CHESTO3_3.py
+python3 CHESTO4_1.py
+python3 CHESTO4_2.py
+python3 CHEIMO1_1.py
+python3 CHEIMO1_2.py
+python3 CHEIMO1_3.py
+
+echo "finished analysis"
