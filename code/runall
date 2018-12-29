@@ -1,3 +1,5 @@
+echo "deleting previously generated output_files"
+
 rm ./output_files/CHESTO2_2.csv &> /dev/null
 rm ./output_files/CHESTO3_1.csv &> /dev/null
 rm ./output_files/CHESTO3_2.csv &> /dev/null
@@ -7,8 +9,14 @@ rm ./output_files/CHESTO4_2.csv &> /dev/null
 rm ./output_files/CHEIMO1_1.csv &> /dev/null
 rm ./output_files/CHEIMO1_2.csv &> /dev/null
 rm ./output_files/CHEIMO1_3.csv &> /dev/null
+rm ../output_files/Profiles_2018_modified.csv &> /dev/null
+rm ../data/Profiles_2018.csv &> /dev/null
+
+echo "copying data from orig master"
 
 cp ../data/Profiles_2018_orig.csv ../data/Profiles_2018.csv
+
+echo "running analysis"
 
 python3 ./CHESTO2_2.py
 python3 ./CHESTO3_1.py
@@ -21,3 +29,9 @@ python3 ./CHEIMO1_2.py
 python3 ./CHEIMO1_3.py
 
 echo "finished analysis"
+
+echo "cleaning up temp files and saving final summary sheet"
+mv ../data/Profiles_2018.csv ../output_files/Profiles_2018_modified.csv
+
+
+echo "done"
