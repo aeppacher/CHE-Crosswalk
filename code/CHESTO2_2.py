@@ -2,8 +2,8 @@ import pandas as pandas
 import csv
 
 # name of data file
-summary_file_name = "Profiles_2018.csv"
-exploratory_file_name = "CHESTO2_2.csv"
+summary_file_name = "../data/Profiles_2018.csv"
+exploratory_file_name = "../output_files/CHESTO2_2.csv"
 
 def main():
     # load data via pandas

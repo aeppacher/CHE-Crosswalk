@@ -2,16 +2,16 @@ import pandas as pandas
 import csv
 
 # name of data file
-summary_file_name = "Profiles_2018.csv"
-exploratory_file_name = "CHESTO3_3.csv"
+summary_file_name = "../data/Profiles_2018.csv"
+exploratory_file_name = "../output_files/CHEIMO1_1.csv"
 
 def main():
     # load data via pandas
     summary_df = pandas.read_csv(summary_file_name)
 
     # creation of exploratory dataframe
-    preset_variables = ["HE2_4", "HE2_5", "HE2_6", "HE2_7"]
-    postset_variable = "CHESTO3_3"
+    preset_variables = ["CHESTO2_2", "HE2_5", "HE2_6"]
+    postset_variable = "CHEIMO1_1"
     columns = ["School_Name", "School_ID"] + [postset_variable] + preset_variables
 
     exploratory_df = pandas.DataFrame(columns = columns)
@@ -56,15 +56,11 @@ def compliance_level(row, preset_variables):
     for pre_var in preset_variables:
         variables.append(row[pre_var])
 
-    count = 0
-    for variable in variables:
-        if variable == 1:
-            count += 1
+    if variables[0] == 1:
+        if variables[1] == 1 or variables[2] == 1:
+            return 1
 
-    if count >= 1:
-        return 1
-    else:
-        return 0
+    return 0
 
 def set_cell(df, value, row_name, col_name):
     df.at[row_name, col_name] = value
