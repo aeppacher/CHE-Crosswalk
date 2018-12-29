@@ -31,7 +31,7 @@ python3 ./CHEIMO1_3.py
 echo "finished analysis"
 
 echo "cleaning up temp files and saving final summary sheet"
-mv ../data/Profiles_2018.csv ../output_files/Profiles_2018_modified.csv
+cp ../data/Profiles_2018.csv ../output_files/Profiles_2018_modified.csv
 
 
 echo "done"
