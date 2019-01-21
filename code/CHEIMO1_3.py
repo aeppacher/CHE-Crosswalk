@@ -8,7 +8,7 @@ exploratory_file_name = "../output_files/CHEIMO1_3.csv"
 #variables
 preset_variables = ["BPSHE32_11", "BPSHE32_12", "BPSHE32_13", "BPSHE32_14"]
 postset_variable = "CHEIMO1_3"
-columns = ["School_Name", "School_ID"] + [postset_variable] + preset_variables
+columns = ["School_Name", "School_ID", "AR_Type"] + [postset_variable] + preset_variables
 
 
 def main():

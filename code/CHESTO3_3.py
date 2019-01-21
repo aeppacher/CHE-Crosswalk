@@ -8,7 +8,7 @@ exploratory_file_name = "../output_files/CHESTO3_3.csv"
 # variables
 preset_variables = ["HE2_4", "HE2_5", "HE2_6", "HE2_7"]
 postset_variable = "CHESTO3_3"
-columns = ["School_Name", "School_ID"] + [postset_variable] + preset_variables
+columns = ["School_Name", "School_ID", "AR_Type"] + [postset_variable] + preset_variables
 
 def main():
     # load data via pandas
