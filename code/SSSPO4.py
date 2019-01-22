@@ -3,12 +3,12 @@ import csv
 
 # name of data file
 summary_file_name = "../data/Profiles_2018.csv"
-exploratory_file_name = "../output_files/CHESTO2_2.csv"
+exploratory_file_name = "../output_files/SSSPO4.csv"
 
 # variables
-preset_variables = ["BPSHE30_1", "BPSHE30_2"]
-postset_variable = "CHESTO2_2"
-columns = ["School_Name", "School_ID", "AR_Type"] + [postset_variable] + preset_variables
+preset_variables = ["BPSP76.0"]
+postset_variable = "SSSPO4"
+columns = ["School_Name", "School_ID"] + [postset_variable] + preset_variables
 
 def main():
     # load data via pandas
@@ -30,10 +30,10 @@ def main():
     exploratory_df.to_csv(exploratory_file_name, index=False)
 
 def set_summary_values(df):
-    # add new CHE_STO2_2 column and initialize to blank
+    # add new CHESTO3_1 column and initialize to blank
     df[postset_variable] = ""
 
-    # set CHE_STO2_2 column
+    # set CHESTO3_1 column
     for index, school in df.iterrows():
         compliance_value = compliance_level(school)
 
@@ -52,18 +52,21 @@ def set_exploratory_values(df_sum, df_explor):
     return df_explor
 
 def compliance_level(row):
-    BPSHE30_1 = row["BPSHE30_1"]
-    BPSHE30_2 = row["BPSHE30_2"]
-    
-    if BPSHE30_1 == 1:
-        if BPSHE30_2 == 1:
+    variables = []
+
+    for pre_var in preset_variables:
+        variables.append(row[pre_var])
+
+    # change this for different compliances
+    count = 0
+
+    for variable in variables:
+        print(type(variable), variable)
+
+        if variable == 1:
             return 1
-        elif BPSHE30_2 == 3:
-            return 1
-    elif BPSHE30_1 == 3:
-        if BPSHE30_2 == 1:
-            return 1
-    return 0
+        else:
+            return 0
 
 def set_cell(df, value, row_name):
     df.at[row_name, postset_variable] = value

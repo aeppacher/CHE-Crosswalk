@@ -16,6 +16,10 @@ echo "copying data from orig master"
 
 cp ../data/Profiles_2018_orig.csv ../data/Profiles_2018.csv
 
+echo "cleaning misformatted values and N/A blanks"
+
+python3 ./data_cleaning.py
+
 echo "running analysis"
 
 python3 ./CHESTO2_2.py
