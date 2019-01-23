@@ -1,15 +1,30 @@
 echo "deleting previously generated output_files"
 
-rm ./output_files/CHESTO2_2.csv &> /dev/null
-rm ./output_files/CHESTO3_1.csv &> /dev/null
-rm ./output_files/CHESTO3_2.csv &> /dev/null
-rm ./output_files/CHESTO3_3.csv &> /dev/null
-rm ./output_files/CHESTO4_1.csv &> /dev/null
-rm ./output_files/CHESTO4_2.csv &> /dev/null
-rm ./output_files/CHEIMO1_1.csv &> /dev/null
-rm ./output_files/CHEIMO1_2.csv &> /dev/null
-rm ./output_files/CHEIMO1_3.csv &> /dev/null
+rm ../output_files/CHESTO2_2.csv &> /dev/null
+rm ../output_files/CHESTO3_1.csv &> /dev/null
+rm ../output_files/CHESTO3_2.csv &> /dev/null
+rm ../output_files/CHESTO3_3.csv &> /dev/null
+rm ../output_files/CHESTO4_1.csv &> /dev/null
+rm ../output_files/CHESTO4_2.csv &> /dev/null
+rm ../output_files/CHEIMO1_1.csv &> /dev/null
+rm ../output_files/CHEIMO1_2.csv &> /dev/null
+rm ../output_files/CHEIMO1_3.csv &> /dev/null
+rm ../output_files/SSSPO4.csv &> /dev/null
+rm ../output_files/SSSPO7.csv &> /dev/null
+rm ../output_files/SSSSTO1_1.csv &> /dev/null
+rm ../output_files/SSSSTO2_1.csv &> /dev/null
+rm ../output_files/SSSSTO2_2.csv &> /dev/null
+rm ../output_files/SSSSTO2_3.csv &> /dev/null
+rm ../output_files/SSSSTO2_4.csv &> /dev/null
+rm ../output_files/SSSSTO3_1.csv &> /dev/null
+rm ../output_files/SSSSTO3_2.csv &> /dev/null
+rm ../output_files/SSSSTO5_1.csv &> /dev/null
+rm ../output_files/SSSSTO11_1.csv &> /dev/null
+rm ../output_files/SSSSTO10_1.csv &> /dev/null
+rm ../output_files/SSSIMO8_1.csv &> /dev/null
+
 rm ../output_files/Profiles_2018_modified.csv &> /dev/null
+
 rm ../data/Profiles_2018.csv &> /dev/null
 
 echo "copying data from orig master"
@@ -31,6 +46,19 @@ python3 ./CHESTO4_2.py
 python3 ./CHEIMO1_1.py
 python3 ./CHEIMO1_2.py
 python3 ./CHEIMO1_3.py
+python3 ./SSSPO4.py
+python3 ./SSSPO7.py
+python3 ./SSSSTO1_1.py
+python3 ./SSSSTO2_1.py
+python3 ./SSSSTO2_2.py
+python3 ./SSSSTO2_3.py
+python3 ./SSSSTO2_4.py
+python3 ./SSSSTO3_1.py
+python3 ./SSSSTO3_2.py
+python3 ./SSSSTO5_1.py
+python3 ./SSSSTO11_1.py
+python3 ./SSSSTO10_1.py
+python3 ./SSSIMO8_1.py
 
 echo "finished analysis"
 

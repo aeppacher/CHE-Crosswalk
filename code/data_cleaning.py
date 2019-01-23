@@ -18,7 +18,7 @@ def main():
     data_df.to_csv(data_df_name, index=False)
 
 def clean_blanks(df):
-    return df.replace(r'\s+', np.nan, regex=True)
+    return df.replace(r'^\s*$', np.nan, regex=True)
 
 def format_values(df):
     return df.apply(pandas.to_numeric, errors='ignore')

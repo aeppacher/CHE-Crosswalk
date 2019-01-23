@@ -3,11 +3,11 @@ import csv
 
 # name of data file
 summary_file_name = "../data/Profiles_2018.csv"
-exploratory_file_name = "../output_files/SSSPO4.csv"
+exploratory_file_name = "../output_files/SSSSTO10_1.csv"
 
 # variables
-preset_variables = ["BPSP76.0"]
-postset_variable = "SSSPO4"
+preset_variables = ["BPSP77_1", "BPSP77_2", "BPSP77_3", "BPSP77_4", "BPSP77_5", "BPSP77_6", "BPSP77_7", "BPSP77_8"]
+postset_variable = "SSSSTO10_1"
 columns = ["School_Name", "School_ID", "AR_Type"] + [postset_variable] + preset_variables
 
 def main():
@@ -57,12 +57,16 @@ def compliance_level(row):
     for pre_var in preset_variables:
         variables.append(row[pre_var])
 
-    # change this for different compliances
-    for variable in variables:
+    output = ""
+
+    for idx, variable in enumerate(variables):
         if variable == 1:
-            return 1
-        else:
-            return 0
+            output = output + str(idx + 1)
+
+    if output == "":
+        return 0
+    else:
+        return float(output)
 
 def set_cell(df, value, row_name):
     df.at[row_name, postset_variable] = value

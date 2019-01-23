@@ -3,11 +3,11 @@ import csv
 
 # name of data file
 summary_file_name = "../data/Profiles_2018.csv"
-exploratory_file_name = "../output_files/SSSPO4.csv"
+exploratory_file_name = "../output_files/SSSSTO11_1.csv"
 
 # variables
-preset_variables = ["BPSP76.0"]
-postset_variable = "SSSPO4"
+preset_variables = ["BPSP71.0"]
+postset_variable = "SSSSTO11_1"
 columns = ["School_Name", "School_ID", "AR_Type"] + [postset_variable] + preset_variables
 
 def main():
@@ -60,6 +60,8 @@ def compliance_level(row):
     # change this for different compliances
     for variable in variables:
         if variable == 1:
+            return 1
+        elif variable == 2:
             return 1
         else:
             return 0
