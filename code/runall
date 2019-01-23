@@ -22,6 +22,11 @@ rm ../output_files/SSSSTO5_1.csv &> /dev/null
 rm ../output_files/SSSSTO11_1.csv &> /dev/null
 rm ../output_files/SSSSTO10_1.csv &> /dev/null
 rm ../output_files/SSSIMO8_1.csv &> /dev/null
+rm ../output_files/PEPASTO2_1.csv &> /dev/null
+rm ../output_files/PEPASTO3_1.csv &> /dev/null
+rm ../output_files/PEPASTO3_2.csv &> /dev/nully
+rm ../output_files/PEPASTO4_1.csv &> /dev/null
+rm ../output_files/PEPASTO5_1.csv &> /dev/null
 
 rm ../output_files/Profiles_2018_modified.csv &> /dev/null
 
@@ -59,6 +64,11 @@ python3 ./SSSSTO5_1.py
 python3 ./SSSSTO11_1.py
 python3 ./SSSSTO10_1.py
 python3 ./SSSIMO8_1.py
+python3 ./PEPASTO2_1.py
+python3 ./PEPASTO3_1.py
+python3 ./PEPASTO3_2.py
+python3 ./PEPASTO4_1.py
+python3 ./PEPASTO5_1.py
 
 echo "finished analysis"
 
