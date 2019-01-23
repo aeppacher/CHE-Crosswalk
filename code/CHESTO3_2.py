@@ -1,5 +1,6 @@
 import pandas as pandas
 import csv
+import numpy as np
 
 # name of data file
 summary_file_name = "../data/Profiles_2018.csv"
@@ -58,14 +59,20 @@ def compliance_level(row):
         variables.append(row[pre_var])
 
     count = 0
+    null_count = 0
     for variable in variables:
         if variable == 1:
             count += 1
+        elif pandas.isnull(variable):
+            null_count += 1
 
-    if count >= 2:
-        return 1
+    if null_count == len(variables):
+        return np.nan
     else:
-        return 0
+        if count >= 2:
+            return 1
+        else:
+            return 0
 
 def set_cell(df, value, row_name):
     df.at[row_name, postset_variable] = value

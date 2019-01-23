@@ -1,5 +1,6 @@
 import pandas as pandas
 import csv
+import numpy as np
 
 # name of data file
 summary_file_name = "../data/Profiles_2018.csv"
@@ -54,6 +55,9 @@ def set_exploratory_values(df_sum, df_explor):
 def compliance_level(row):
     BPSHE30_1 = row["BPSHE30_1"]
     BPSHE30_2 = row["BPSHE30_2"]
+
+    if pandas.isnull(BPSHE30_1) & pandas.isnull(BPSHE30_2):
+        return np.nan
     
     if BPSHE30_1 == 1:
         if BPSHE30_2 == 1:

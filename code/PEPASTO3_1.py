@@ -60,17 +60,21 @@ def compliance_level(row):
         variables.append(row[pre_var])
 
     # change this for different compliances
-    sum = 0
+    null_count = 0
     count = 0
     for variable in variables:
-        if variable >= 0:
+        if variable >= 20:
             count = count + 1
-            sum = sum + variable
+        elif pandas.isnull(variable) or variable == -999:
+            null_count += 1
 
-    if count == 0:
+    if null_count == len(variables):
         return np.nan
     else:
-        return (sum / count)
+        if count + null_count == len(variables):
+            return 1
+        else:
+            return 0
 
 def set_cell(df, value, row_name):
     df.at[row_name, postset_variable] = value

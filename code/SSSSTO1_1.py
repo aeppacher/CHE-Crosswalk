@@ -1,5 +1,6 @@
 import pandas as pandas
 import csv
+import numpy as np
 
 # name of data file
 summary_file_name = "../data/Profiles_2018.csv"
@@ -65,6 +66,8 @@ def compliance_level(row):
             return 2
         elif variable == 3:
             return 3
+        elif pandas.isnull(variable):
+            return np.nan
         else:
             return 0
 
