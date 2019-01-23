@@ -24,7 +24,7 @@ rm ../output_files/SSSSTO10_1.csv &> /dev/null
 rm ../output_files/SSSIMO8_1.csv &> /dev/null
 rm ../output_files/PEPASTO2_1.csv &> /dev/null
 rm ../output_files/PEPASTO3_1.csv &> /dev/null
-rm ../output_files/PEPASTO3_2.csv &> /dev/nully
+rm ../output_files/PEPASTO3_2.csv &> /dev/null
 rm ../output_files/PEPASTO4_1.csv &> /dev/null
 rm ../output_files/PEPASTO5_1.csv &> /dev/null
 
