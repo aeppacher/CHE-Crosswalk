@@ -63,8 +63,9 @@ def compliance_level(row):
     count = 0
     null_count = 0
     for variable in variables:
-        if variable == 1:
-            count += 1
+        if variables[0] == 1:
+            if variables[1] == 1 or variables[2] == 1:
+                count += 1
         elif pandas.isnull(variable):
             null_count += 1
 
