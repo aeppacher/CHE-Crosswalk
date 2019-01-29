@@ -38,6 +38,8 @@ rm ../output_files/SSSSTO3_2.csv &> /dev/null
 rm ../output_files/SSSSTO5_1.csv &> /dev/null
 rm ../output_files/SSSSTO11_1.csv &> /dev/null
 rm ../output_files/SSSSTO10_1.csv &> /dev/null
+rm ../output_files/GENIMO1_3A.csv &> /dev/null
+rm ../output_files/GENIMO1_3B.csv &> /dev/null
 
 
 rm ../output_files/Profiles_2018_modified.csv &> /dev/null
@@ -92,6 +94,8 @@ python3 ./SSSSTO10_1.py
 python3 ./CHEIMO1_1.py
 python3 ./CHEIMO1_2.py
 python3 ./CHEIMO1_3.py
+python3 ./GENIMO1_3A.py
+python3 ./GENIMO1_3B.py
 
 echo "finished analysis"
 
