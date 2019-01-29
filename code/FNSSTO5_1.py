@@ -55,7 +55,7 @@ def set_exploratory_values(df_sum, df_explor):
 
         df_explor = add_row(df_explor, get_row_values(school))
 
-    df_explor = df_explor.sort_values(by=["AR_Type", postset_variable], ascending=False)
+    df_explor = df_explor.sort_values(by=["School_Name", postset_variable], ascending=False)
 
     return df_explor
 
