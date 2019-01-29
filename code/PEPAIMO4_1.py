@@ -85,18 +85,16 @@ def compliance_level(row):
         variables5.append(row[pre_var])
 
 
-    count = 0
+    full_count = 0
+    partial_count = 0
     null_count = 0
     for idx, variable in enumerate(variables):
         sum = 0
         null_temp_count = 0
-        pe_null = False
-        recess_null = False
 
         # recess activity
         if (pandas.isnull(variables[idx]) | (variables[idx] == 1)):
             null_temp_count += 1
-            recess_null = True
         else:
             sum += variables[idx]
 
@@ -121,12 +119,13 @@ def compliance_level(row):
         # PE activities
         if (pandas.isnull(variables5[idx]) | (variables5[idx] == 1)):
             null_temp_count += 1
-            pe_null = True
         else:
             sum += variables5[idx]
 
-        if (sum >= 150) & (recess_null == False) & (pe_null == False) & (variables5[idx] >= 45) & (variables[idx] >= 100):
-            count += 1 
+        if (sum >= 150) & (variables5[idx] >= 45) & (variables[idx] >= 100):
+            full_count += 1
+        elif (sum >= 150) & (variables5[idx] >= 45) | (sum >= 150) & (variables[idx] >= 100) | (variables[idx] >= 100) & (variables5[idx] >= 45):
+            partial_count += 1
 
         if null_temp_count >= 4:
             null_count +=1
@@ -135,8 +134,11 @@ def compliance_level(row):
     if null_count == len(variables):
         return np.nan
     else:
-        if count + null_count == len(variables):
-            return 1
+        if full_count + null_count + partial_count == len(variables):
+            if partial_count > 0:
+                return 2
+            else:
+                return 1
         else:
             return 0
 
