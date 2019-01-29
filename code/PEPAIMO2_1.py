@@ -4,14 +4,13 @@ import numpy as np
 
 # name of data file
 summary_file_name = "../data/Profiles_2018.csv"
-exploratory_file_name = "../output_files/SSSSTO10_1.csv"
+exploratory_file_name = "../output_files/PEPAIMO2_1.csv"
 
 # variables
-preset_variables = ["BPSP77_1", "BPSP77_2", "BPSP77_3", "BPSP77_4", "BPSP77_5", "BPSP77_6"]
-preset_variables2 = ["BPSP77_1", "BPSP77_2", "BPSP77_4", "BPSP77_5", "BPSP77_6"]
-preset_variables3 = ["BPSP77_7", "BPSP77_8"]
-postset_variable = "SSSSTO10_1"
-columns = ["School_Name", "School_ID", "AR_Type"] + [postset_variable] + preset_variables + preset_variables2 + preset_variables3
+preset_variables = ["CSPAP5_1", "CSPAP5_2", "CSPAP5_3", "CSPAP5_4", "CSPAP5_5",
+                    "CSPAP5_6", "CSPAP5_7", "CSPAP5_8", "CSPAP5_9", "CSPAP5_10"]
+postset_variable = "PEPAIMO2_1"
+columns = ["School_Name", "School_ID", "AR_Type"] + [postset_variable] + preset_variables
 
 def main():
     # load data via pandas
@@ -56,59 +55,25 @@ def set_exploratory_values(df_sum, df_explor):
 
 def compliance_level(row):
     variables = []
-    variables2 = []
 
     for pre_var in preset_variables:
         variables.append(row[pre_var])
 
-    for pre_var in preset_variables2:
-        variables2.append(row[pre_var])
+    count = 0
+    null_count = 0
+    for variable in variables:
+        if variable >= 45:
+            count += 1
+        elif (pandas.isnull(variable)) | (variable == -999):
+            null_count += 1
 
-    AR_Type = row["AR_Type"]
-    BPSP77_7 = row["BPSP77_7"]
-    BPSP77_8 = row["BPSP77_8"]
-
-    if (AR_Type == '="K-12"') | (AR_Type == '="6-12"') | (AR_Type == '="9-12"'):
-        count = 0
-        null_count = 0
-        for variable in variables:
-            if (variable == 1) | (variable == 3):
-                count += 1
-            elif pandas.isnull(variable):
-                null_count += 1
-
-        if null_count == len(variables):
-            return np.nan
-        else:
-            if count >= 6:
-                if (BPSP77_7 == 2) | (BPSP77_8 == 2):
-                    return 2
-                else:
-                    return 1
-            else:
-                return 0
-    elif(AR_Type == '="K-5"') | (AR_Type == '="K-8"') | (AR_Type == '="6-8"'):
-        count = 0
-        null_count = 0
-        for variable in variables2:
-            if (variable == 1) | (variable == 3):
-                count += 1
-            elif pandas.isnull(variable):
-                null_count += 1
-
-        if null_count == len(variables2):
-            return np.nan
-        else:
-            if count >= 5:
-                if (BPSP77_7 == 2) | (BPSP77_8 == 2):
-                    return 2
-                else:
-                    return 1
-            else:
-                return 0
-    else:
+    if null_count == len(variables):
         return np.nan
-
+    else:
+        if (count + null_count) == len(variables):
+            return 1
+        else:
+            return 0
 
 def set_cell(df, value, row_name):
     df.at[row_name, postset_variable] = value

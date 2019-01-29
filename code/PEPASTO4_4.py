@@ -4,11 +4,11 @@ import numpy as np
 
 # name of data file
 summary_file_name = "../data/Profiles_2018.csv"
-exploratory_file_name = "../output_files/PEPASTO4_1.csv"
+exploratory_file_name = "../output_files/PEPASTO4_4.csv"
 
 # variables
-preset_variables = ["BPSP61.0"]
-postset_variable = "PEPASTO4_1"
+preset_variables = ["PE26", "P19"]
+postset_variable = "PEPASTO4_4"
 columns = ["School_Name", "School_ID", "AR_Type"] + [postset_variable] + preset_variables
 
 def main():
@@ -58,12 +58,19 @@ def compliance_level(row):
     for pre_var in preset_variables:
         variables.append(row[pre_var])
 
-    # change this for different compliances
+    count = 0
+    null_count = 0
     for variable in variables:
         if variable == 1:
-            return 1
+            count += 1
         elif pandas.isnull(variable):
-            return np.nan
+            null_count += 1
+
+    if null_count == len(variables):
+        return np.nan
+    else:
+        if count >= 1:
+            return 1
         else:
             return 0
 

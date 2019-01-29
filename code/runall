@@ -21,10 +21,14 @@ rm ../output_files/PEPASTO1_3.csv &> /dev/null
 rm ../output_files/PEPASTO2_1.csv &> /dev/null
 rm ../output_files/PEPASTO3_1.csv &> /dev/null
 rm ../output_files/PEPASTO3_2.csv &> /dev/null
-rm ../output_files/PEPASTO4_1.csv &> /dev/null
+rm ../output_files/PEPASTO7_4.csv &> /dev/null
+rm ../output_files/PEPASTO4_4.csv &> /dev/null
 rm ../output_files/PEPASTO5_1.csv &> /dev/null
 rm ../output_files/PEPASTO6_1.csv &> /dev/null
 rm ../output_files/PEPASTO6_2.csv &> /dev/null
+rm ../output_files/PEPAIMO2_1.csv &> /dev/null
+rm ../output_files/PEPAIMO2_2.csv &> /dev/null
+rm ../output_files/PEPAIMO2_3.csv &> /dev/null
 rm ../output_files/SSSIMO8_1.csv &> /dev/null
 rm ../output_files/SSSPO4.csv &> /dev/null
 rm ../output_files/SSSPO7.csv &> /dev/null
@@ -74,10 +78,14 @@ python3 ./PEPASTO1_3.py
 python3 ./PEPASTO2_1.py
 python3 ./PEPASTO3_1.py
 python3 ./PEPASTO3_2.py
-python3 ./PEPASTO4_1.py
+python3 ./PEPASTO7_4.py
 python3 ./PEPASTO5_1.py
+python3 ./PEPASTO4_4.py
 python3 ./PEPASTO6_1.py
 python3 ./PEPASTO6_2.py
+python3 ./PEPAIMO2_1.py
+python3 ./PEPAIMO2_2.py
+python3 ./PEPAIMO2_3.py
 python3 ./SSSIMO8_1.py
 python3 ./SSSPO4.py
 python3 ./SSSPO7.py
