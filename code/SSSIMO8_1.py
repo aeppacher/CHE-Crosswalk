@@ -4,7 +4,7 @@ import numpy as np
 
 # name of data file
 summary_file_name = "../data/Profiles_2018.csv"
-exploratory_file_name = "../output_files/SSSSTO11_1.csv"
+exploratory_file_name = "../output_files/SSSIMO8_1.csv"
 
 # variables
 preset_variables = ["BPSP71.0"]
