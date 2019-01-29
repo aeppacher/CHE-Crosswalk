@@ -100,7 +100,7 @@ def compliance_level(row):
             return np.nan
         else:
             if count >= 5:
-                if (BPSP77_7 == 2) | (BPSP77_8 == 2):
+                if (BPSP77_7 == 1) | (BPSP77_8 == 1):
                     return 2
                 else:
                     return 1

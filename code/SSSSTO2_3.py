@@ -61,11 +61,11 @@ def compliance_level(row):
     # change this for different compliances
     for variable in variables:
         if variable == 1:
-            return 0
+            return 1
         elif pandas.isnull(variable):
             return np.nan
         else:
-            return 1
+            return 0
 
 def set_cell(df, value, row_name):
     df.at[row_name, postset_variable] = value
