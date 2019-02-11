@@ -67,6 +67,7 @@ python3 ./CHESTO3_3.py
 python3 ./CHESTO4_1.py
 python3 ./CHESTO4_2.py
 python3 ./FNSIMO3_1.py
+python3 ./FNSIMO3_2.py
 python3 ./FNSSTO3_1.py
 python3 ./FNSSTO5_1.py
 python3 ./GENSTO1_2.py

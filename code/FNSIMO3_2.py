@@ -7,9 +7,9 @@ summary_file_name = "../data/Profiles_2018.csv"
 exploratory_file_name = "../output_files/FNSIMO3_2.csv"
 
 # variables
-preset_variables = ["P30_1", "P30_2", "P30_3", "P30_4", "P30_5", "P30_6", "P30_7", "P30_9", "P30_10", "P30_11",
+preset_variables = ["P30_1", "P30_2", "P30_3", "P30_5", "P30_6", "P30_7", "P30_9", "P30_10", "P30_11",
                     "P30_12", "P30_14", "P30_16"]
-preset_variables2 = ["P30_1", "P30_2", "P30_3", "P30_4", "P30_5", "P30_6", "P30_7", "P30_8", "P30_9", "P30_10",
+preset_variables2 = ["P30_1", "P30_2", "P30_3", "P30_5", "P30_6", "P30_7", "P30_8", "P30_9", "P30_10",
                     "P30_11", "P30_12", "P30_14", "P30_16"]
 postset_variable = "FNSIMO3_2"
 columns = ["School_Name", "School_ID", "AR_Type"] + [postset_variable] + preset_variables + preset_variables2
